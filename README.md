@@ -1,4 +1,5 @@
 # Gifting-Genie - A Gift Giving Alert System
+Created by: Phillip Kershaw, Christopher Matthews, Geralding Edwards and Joanna O'Connor. 
 
 <img width="612" alt="" src="readme.docs/...">
 
@@ -7,7 +8,7 @@ link to Heroku (live page)
 > [View live project here]()
 
 Github link 
-> [view Github repo here]()
+> [view Github repo here](https://github.com/Philgck/gifting-genie-two)
 > 
 
 Gifting Genie is a dynamic and intuitive gifting management web application designed to help authenticated users manage their events and wishlist items, and connect with their friends to share and view profiles. Built with HTML, CSS, JavaScript, and Django, this app aims to streamline the process of organizing events, tracking desired gifts, and maintaining connections with friends, all in one place. Whether planning a birthday party, keeping track of gift ideas, or checking a friend's wishlist, Gifting Genie makes the experience seamless and enjoyable. Gifting Genie simplifies the process of managing gift lists and events while maintaining a social network of friends to share and celebrate with.
@@ -84,7 +85,8 @@ INTENDED AUDIENCE
 - Families and Friends: Groups of users who want to coordinate gift-giving and event planning within their social circles, ensuring everyone is on the same page for special occasions.
 - Event Planners: Professionals or enthusiasts who need a reliable tool to organize events, track important dates, and manage guest lists and gift registries.
 - Communities and Clubs: Social groups and organizations that want to maintain a shared calendar of events and coordinate gift exchanges among members.
-- By addressing the needs of these varied user groups, Gifting-Genie aims to create a cohesive and interactive experience that brings people together through thoughtful event planning and gift-giving.
+
+By addressing the needs of these varied user groups, Gifting-Genie aims to create a cohesive and interactive experience that brings people together through thoughtful event planning and gift-giving.
 
 **Gifting-Genie User stories**
 		 
@@ -198,7 +200,7 @@ The website features a consistent layout and styling across all pages, ensuring 
 
 - **Header**: The header contains a collapsible navbar that is consistent across all pages. It includes links to the main sections of the website, such as ~~Home, Nuclear Facilities, Nuclear Fuel & Waste, Nuclear Defence, Nuclear Power in Space, Fact or Fiction, and Educational Resources.~~ The navbar also includes login and signup links for unauthenticated users and a logout button for authenticated users.
 - **Collapsible Navbar**: The navbar is designed to be responsive and collapses into a hamburger menu on smaller screens. This ensures that the navigation is accessible and user-friendly on all devices.
-- **Footer**: The footer is consistent across all pages and includes a copyright notice. It maintains the same styling as the header, providing a cohesive look and feel across all pages.
+- **Footer**: The footer is consistent across all pages and includes links to social media apps Facebook, X (formerly Twitter) and Instagram. It maintains the same styling as the header, providing a cohesive look and feel across all pages.
 - **Main Content Area**: The main content area is designed to be flexible and accommodate various types of content, including text, images, and interactive elements. It is styled to ensure readability and a pleasant user experience.
     
  ---
@@ -539,4 +541,5 @@ We adopted an agile methodology using a GitHub project board, applying MoSCoW pr
 - Code Institute SME Coach John Rearden for coding advice
 - Code Institue Coding Coach Ruairidh MacArthur for GIT advice
 - 
-- # gifting-genie-two
+- 
+
