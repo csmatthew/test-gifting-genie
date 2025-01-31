@@ -52,11 +52,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'planner',
     'friendslist',
+    'myaccount',
 ]
 
 SITE_ID = 1
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/myaccount/'
 LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
