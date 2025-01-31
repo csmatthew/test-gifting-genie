@@ -1,3 +1,4 @@
+// filepath: /c:/Users/Pgcke/Documents/visual studio projects/gifting-genie-two/static/js/friendsearch.js
 $(document).ready(function() {
     $('#search-button').on('click', function() {
         var query = $('#id_friend_username').val();
