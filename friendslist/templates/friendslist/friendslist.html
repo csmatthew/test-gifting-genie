@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends</title>
+</head>
+<body>
+    <h1>Friends List</h1>
+    {% if user.is_authenticated %}
+        <ul>
+            {% for friendship in friendships %}
+                <li>{{ friendship.user.username }} is friends with {{ friendship.friend.username }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Add a Friend</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Friend</button>
+        </form>
+
+        <h2>Pending Friend Requests</h2>
+        <ul>
+            {% for friendship in pending_friendships %}
+                <li>{{ friendship.user.username }} wants to be friends with you
+                    <form method="post" action="{% url 'confirm_friendship' friendship.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Confirm</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You need to be logged in to see your friends list.</p>
+    {% endif %}
+</body>
+</html>
