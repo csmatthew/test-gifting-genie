@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Add Wishlist Item</h2>
+    <form method="post" id="wishlist-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('wishlist-form');
+        const itemNameInput = document.getElementById('id_item_name');
+        const descriptionInput = document.getElementById('id_description');
+        const linkInput = document.getElementById('id_link');
+        const submitButton = form.querySelector('button[type="submit"]');
+
+        itemNameInput.addEventListener('input', function() {
+            console.log('Item Name:', itemNameInput.value);
+        });
+
+        descriptionInput.addEventListener('input', function() {
+            console.log('Description:', descriptionInput.value);
+        });
+
+        linkInput.addEventListener('input', function() {
+            console.log('Link:', linkInput.value);
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Form submitted');
+            form.submit();
+
+        const handleEnterKey = (event, nextElement) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                nextElement.focus();
+            }
+        };
+
+        itemNameInput.addEventListener('keydown', function(event) {
+            handleEnterKey(event, descriptionInput);
+        });
+
+        descriptionInput.addEventListener('keydown', function(event) {
+            handleEnterKey(event, linkInput);
+        });
+
+        linkInput.addEventListener('keydown', function(event) {
+            handleEnterKey(event, submitButton);
+        });
+
+        form.addEventListener('submit', function(event) {
+            console.log('Form submitted');
+        });
+    });
+</script>
+{% endblock %}
