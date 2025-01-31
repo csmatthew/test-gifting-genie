@@ -5,6 +5,16 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Friendship
 from .forms import AddFriendForm
+from django.http import JsonResponse
+
+def search_usernames(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        query = request.GET.get('term', '')
+        users = User.objects.filter(username__icontains=query)
+        results = [user.username for user in users]
+        return JsonResponse(results, safe=False)
+    return JsonResponse([], safe=False)
+
 
 def friendship_list(request):
     friendships = Friendship.objects.filter(user=request.user, confirmed=True)
