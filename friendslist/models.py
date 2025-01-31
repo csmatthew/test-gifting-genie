@@ -23,3 +23,15 @@ class Friendship(models.Model):
 
     def __str__(self):
         return f"{self.user.username} is friends with {self.friend.username}"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.confirmed:
+            reciprocal, created = Friendship.objects.get_or_create(
+                user=self.friend,
+                friend=self.user,
+                defaults={'confirmed': True}
+            )
+            if not created and not reciprocal.confirmed:
+                reciprocal.confirmed = True
+                reciprocal.save()
