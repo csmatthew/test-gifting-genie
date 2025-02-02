@@ -3,63 +3,128 @@
 
 /* CSS Variables */
 /* Light Mode */
-:root {
-    --primary-bg: #ffffff;
-    --primary-fg: #000000; /* fg here means 'foreground text' */
-    --secondary-bg: #f8f9fa;
-    --secondary-fg: #343a40;
-    --contrast-bg: #000000;
-    --link-color: #007bff;
-    --link-hover-color: #0056b3;
+:root,
+[data-theme="light"] {
+    --bs-blue: #3a8fd9;
+    --bs-indigo: #6610f2;
+    --bs-purple: #686dc3;
+    --bs-pink: #e83283;
+    --bs-red: #fc346f;
+    --bs-orange: #fd7e14;
+    --bs-yellow: #ffc107;
+    --bs-green: #41d7a7;
+    --bs-teal: #528fb3;
+    --bs-cyan: #39cbfb;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-primary: #e83283;
+
+    /* gradient */
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+
+    /* font */
+    --bs-link-opacity: 0.25;
+
+
+
 }
 
 /* Dark Mode */
 [data-theme="dark"] {
-    --primary-bg: #121212;
-    --primary-fg: #ffffff;
-    --secondary-bg: #1f1f1f;
-    --secondary-fg: #e0e0e0;
-    --contrast-bg: #ffffff;
-    --link-color: #81d4fa;
-    --link-hover-color: #4ac1f7;
+    --bs-blue: #1e3a5f;
+    --bs-indigo: #3e1a8a;
+    --bs-purple: #3e3a6d;
+    --bs-pink: #8a1a4a;
+    --bs-red: #8a1a2f;
+    --bs-orange: #8a3e14;
+    --bs-yellow: #8a6a07;
+    --bs-green: #1e5f4a;
+    --bs-teal: #1e4a5f;
+    --bs-cyan: #1e5f6a;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #3e3e3e;
+    --bs-gray-dark: #1e1e1e;
+    --bs-body-bg: #212529; 
+    --bs-primary: #4d112c;
 }
 
 /* global */
-body {
-    height: 100%;
+
+html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    background-color: var(--primary-bg);
-    color: var(--primary-fg);
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(45deg, var(--bs-pink), var(--bs-green), var(--bs-purple));
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* navbar */
-.navbar, .container {
-    background-color: var(--secondary-bg);
+nav {
+    width: 100%;
+    position: fixed; /* Ensure the navbar stays at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.navbar {
+    background-color: var(--bs-primary);
     color: var(--secondary-fg);
 }
 
-a {
-    color: var(--link-color);
+.nav-item a .profile-image {
+    opacity: 1 !important; /* Ensure profile image is fully opaque */
+    transition: none !important; /* Exempt profile image from hover transition */
 }
 
-a:hover {
-    color: var(--link-hover-color);
+.trans-text {
+    opacity: 0.7;
+    transition: opacity 0.8s ease, transform 1s ease;
 }
+
+.trans-text:hover {
+    color: var(--bs-white);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 
 .brand {
     font-family: "Pacifico", serif;
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: 0.2rem;
-    color: var(--primary-fg);
+    color: var(--bs-white);
 }
 
 .brand-icon {
     font-size: 3rem;
-    color: var(--primary-fg);
+    color: var(--bs-white);
 }
 
 .profile-link {
@@ -67,21 +132,104 @@ a:hover {
     align-items: center;
 }
 
+.profile-text:hover {
+    color: var(--bs-white);
+    font-weight: bold;
+}
+
 .profile-link .profile-image {
     width: 25px;
     height: 25px;
     object-fit: cover;
     margin-right: 10px;
+    opacity: 1 !important; /* Ensure profile image is fully opaque */
+    transition: none !important; /* Exempt profile image from hover transition */
 }
 
-.nav-item .nav-link {
-    display: flex;
-    align-items: center;
-    color: var(--primary-fg);
+.nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: var(--bs-white);
+    text-decoration: none;
+    background: none;
+    border: 0;
 }
 
 .btn-rounded {
     border-radius: 50px;
+}
+
+.navbar-toggler {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    padding: 10px;
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Ensure it stays above other content but below the menu */
+    display: none; /* Hide the overlay by default */
+}
+
+body.menu-open .overlay {
+    display: block; /* Show the overlay when the menu is open */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Ensure it stays above other content but below the menu */
+    display: none; /* Hide the overlay by default */
+}
+
+body.menu-open .overlay {
+    display: block; /* Show the overlay when the menu is open */
+}
+
+.toggler-container {
+    z-index: 1050;
+}
+
+.navbar-toggler {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    padding: 10px;
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+/* Ensure the menu itself is also fixed and does not shift content */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px; /* Adjust width as needed */
+    height: 100%;
+    background-color: var(--bs-body-bg);
+    z-index: 1001; /* Ensure it stays above other content */
+    transform: translateX(100%); /* Hide the menu by default */
+    transition: transform 0.3s ease-in-out;
+}
+
+body.menu-open .menu {
+    transform: translateX(0); /* Show the menu when the body has the 'menu-open' class */
 }
 
 /* index.html */
@@ -104,9 +252,9 @@ a:hover {
 
 .feature-text {
     position: absolute;
-    top: 50%; 
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     text-align: center;
@@ -119,8 +267,6 @@ footer {
     position: sticky;
     bottom: 0;
     width: 100%;
-    background-color: --primary-bg;
-    color: --primary-fg;
     text-align: center;
     padding: 10px 0;
     z-index: 1;
@@ -129,21 +275,20 @@ footer {
 .footer-icons {
     position: relative;
     z-index: 2;
-    color: --primary-fg;
+    color: --bs-black;
     text-decoration: none;
 }
 
-.footer {
-    background-color: var(--secondary-bg);
-    color: var(--secondary-fg);
+.footer-icons i {
+    transition: transform 0.3s ease;
 }
 
-.footer a {
-    color: var(--link-color);
+.footer-icons i:hover {
+    transform: scale(1.75);
 }
 
-.footer a:hover {
-    color: var(--link-hover-color);
+[data-theme="dark"] .footer-icons {
+    color: var(--bs-white); 
 }
 
 /* my account */
@@ -153,8 +298,10 @@ footer {
 }
 
 .profile-picture-container img {
-    width: 150px; /* Adjust the size as needed */
-    height: 150px; /* Adjust the size as needed */
+    width: 150px;
+    /* Adjust the size as needed */
+    height: 150px;
+    /* Adjust the size as needed */
 }
 
 .edit-profile-picture {
@@ -164,13 +311,17 @@ footer {
     background-color: var(--contrast-bg);
     color: var(--primary-bg);
     border-radius: 50%;
-    width: 25px; /* Adjust the size as needed */
-    height: 25px; /* Adjust the size as needed */
+    width: 25px;
+    /* Adjust the size as needed */
+    height: 25px;
+    /* Adjust the size as needed */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
+
+
 
 /* Media Style Queries */
 
@@ -180,12 +331,15 @@ footer {
         font-size: 1.5rem;
         letter-spacing: 0.1rem;
     }
+
     .brand-icon {
         font-size: 1.5rem;
     }
+
     .btn-rounded {
         border-radius: 25px;
     }
+
     .profile-link .profile-image {
         width: 15px;
         height: 15px;
@@ -198,12 +352,15 @@ footer {
         font-size: 1.75rem;
         letter-spacing: 0.15rem;
     }
+
     .brand-icon {
         font-size: 1.75rem;
     }
+
     .btn-rounded {
         border-radius: 30px;
     }
+
     .profile-link .profile-image {
         width: 17.5px;
         height: 17.5px;
@@ -216,12 +373,15 @@ footer {
         font-size: 2rem;
         letter-spacing: 0.2rem;
     }
+
     .brand-icon {
         font-size: 2rem;
     }
+
     .btn-rounded {
         border-radius: 35px;
     }
+
     .profile-link .profile-image {
         width: 20px;
         height: 20px;
@@ -234,12 +394,15 @@ footer {
         font-size: 2.25rem;
         letter-spacing: 0.25rem;
     }
+
     .brand-icon {
         font-size: 2.25rem;
     }
+
     .btn-rounded {
         border-radius: 40px;
     }
+
     .profile-link .profile-image {
         width: 22.5px;
         height: 22.5px;
@@ -252,12 +415,15 @@ footer {
         font-size: 2.5rem;
         letter-spacing: 0.3rem;
     }
+
     .brand-icon {
         font-size: 2.5rem;
     }
+
     .btn-rounded {
         border-radius: 50px;
     }
+
     .profile-link .profile-image {
         width: 25px;
         height: 25px;
