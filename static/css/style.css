@@ -2,44 +2,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 /* CSS Variables */
+/* Light Mode */
 :root {
-    /* fonts */
-    --primary-font: "Pacifico", serif;
-    --secondary-font: sans-serif;
-    /* font color */
-    --primary-color: #f9f5ef;
-    /* white */
-    --secondary-color: #8a8fc4;
-    /* blue-light */
-    --highlight-color: #d88038;
-    /* orange */
-    --highlight-color-light: #e3d245;
-    /* yellow */
+    --primary-bg: #ffffff;
+    --primary-fg: #000000; /* fg here means 'foreground text' */
+    --secondary-bg: #f8f9fa;
+    --secondary-fg: #343a40;
+    --contrast-bg: #000000;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+}
 
-    /* background color */
-    --background-color: #ffffff;
-    /* black */
+/* Dark Mode */
+[data-theme="dark"] {
+    --primary-bg: #121212;
+    --primary-fg: #ffffff;
+    --secondary-bg: #1f1f1f;
+    --secondary-fg: #e0e0e0;
+    --contrast-bg: #ffffff;
+    --link-color: #81d4fa;
+    --link-hover-color: #4ac1f7;
 }
 
 /* global */
-body, html {
+body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    background-color: var(--primary-bg);
+    color: var(--primary-fg);
 }
 
 /* navbar */
+.navbar, .container {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-fg);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
 .brand {
-    font-family: var(--primary-font);
+    font-family: "Pacifico", serif;
     font-size: 2rem;
     font-weight: 400;
     letter-spacing: 0.2rem;
+    color: var(--primary-fg);
 }
 
 .brand-icon {
     font-size: 3rem;
+    color: var(--primary-fg);
 }
 
 .profile-link {
@@ -48,8 +68,8 @@ body, html {
 }
 
 .profile-link .profile-image {
-    width: 25px; /* Adjust the size as needed */
-    height: 25px; /* Adjust the size as needed */
+    width: 25px;
+    height: 25px;
     object-fit: cover;
     margin-right: 10px;
 }
@@ -57,6 +77,7 @@ body, html {
 .nav-item .nav-link {
     display: flex;
     align-items: center;
+    color: var(--primary-fg);
 }
 
 .btn-rounded {
@@ -92,14 +113,14 @@ body, html {
     z-index: 1;
 }
 
-/* footer */ 
+/* footer */
 footer {
     flex-shrink: 0;
     position: sticky;
     bottom: 0;
     width: 100%;
-    background-color: #333;
-    color: white;
+    background-color: --primary-bg;
+    color: --primary-fg;
     text-align: center;
     padding: 10px 0;
     z-index: 1;
@@ -108,8 +129,21 @@ footer {
 .footer-icons {
     position: relative;
     z-index: 2;
-    color: black;
+    color: --primary-fg;
     text-decoration: none;
+}
+
+.footer {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-fg);
+}
+
+.footer a {
+    color: var(--link-color);
+}
+
+.footer a:hover {
+    color: var(--link-hover-color);
 }
 
 /* my account */
@@ -127,17 +161,16 @@ footer {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: var(--contrast-bg);
+    color: var(--primary-bg);
     border-radius: 50%;
-    width: 30px; /* Adjust the size as needed */
-    height: 30px; /* Adjust the size as needed */
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
 }
-
 
 /* Media Style Queries */
 
@@ -153,6 +186,10 @@ footer {
     .btn-rounded {
         border-radius: 25px;
     }
+    .profile-link .profile-image {
+        width: 15px;
+        height: 15px;
+    }
 }
 
 /* Small devices (tablets, 576px and up) */
@@ -166,6 +203,10 @@ footer {
     }
     .btn-rounded {
         border-radius: 30px;
+    }
+    .profile-link .profile-image {
+        width: 17.5px;
+        height: 17.5px;
     }
 }
 
@@ -181,6 +222,10 @@ footer {
     .btn-rounded {
         border-radius: 35px;
     }
+    .profile-link .profile-image {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 /* Large devices (large desktops, 992px and up) */
@@ -195,6 +240,10 @@ footer {
     .btn-rounded {
         border-radius: 40px;
     }
+    .profile-link .profile-image {
+        width: 22.5px;
+        height: 22.5px;
+    }
 }
 
 /* Extra large devices (larger desktops, 1200px and up) */
@@ -208,5 +257,9 @@ footer {
     }
     .btn-rounded {
         border-radius: 50px;
+    }
+    .profile-link .profile-image {
+        width: 25px;
+        height: 25px;
     }
 }
