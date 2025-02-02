@@ -169,8 +169,6 @@ footer {
     position: sticky;
     bottom: 0;
     width: 100%;
-    background-color: var(--bs-primary);
-    color: ;
     text-align: center;
     padding: 10px 0;
     z-index: 1;
@@ -179,16 +177,20 @@ footer {
 .footer-icons {
     position: relative;
     z-index: 2;
-    color: --primary-fg;
+    color: --bs-black;
     text-decoration: none;
 }
 
-.footer a {
-    color: var(--link-color);
+.footer-icons i {
+    transition: transform 0.3s ease;
 }
 
-.footer a:hover {
-    color: var(--link-hover-color);
+.footer-icons i:hover {
+    transform: scale(1.75);
+}
+
+[data-theme="dark"] .footer-icons {
+    color: var(--bs-white); 
 }
 
 /* my account */
