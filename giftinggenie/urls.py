@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('friends/', include('friendslist.urls')),
     path('myaccount/', include('myaccount.urls')),
+    path('wishlist/', include('wishlist.urls')),
 ]
 
 if settings.DEBUG:
