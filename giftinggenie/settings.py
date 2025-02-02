@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'friendslist',
     'planner',
+    'wishlist',
 ]
 
 SITE_ID = 1
