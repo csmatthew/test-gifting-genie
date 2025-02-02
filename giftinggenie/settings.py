@@ -68,6 +68,8 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 SITE_ID = 1
