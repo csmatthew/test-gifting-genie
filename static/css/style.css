@@ -20,15 +20,6 @@
     --bs-gray: #6c757d;
     --bs-gray-dark: #343a40;
     --bs-primary: #e83283;
-
-    /* gradient */
-    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-
-    /* font */
-    --bs-link-opacity: 0.25;
-
-
-
 }
 
 /* Dark Mode */
@@ -50,6 +41,9 @@
     --bs-body-bg: #212529; 
     --bs-primary: #4d112c;
 }
+
+/* fonts */
+
 
 /* global */
 
@@ -157,10 +151,6 @@ nav {
     border: 0;
 }
 
-.btn-rounded {
-    border-radius: 50px;
-}
-
 .navbar-toggler {
     position: fixed;
     right: 0;
@@ -230,6 +220,44 @@ body.menu-open .overlay {
 
 body.menu-open .menu {
     transform: translateX(0); /* Show the menu when the body has the 'menu-open' class */
+}
+
+
+/* buttons */
+.btn {
+    border: none;
+    outline: none;
+}
+
+.btn-log {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.btn-log:hover {
+    background-color: var(--bs-gray-dark);
+    color: var(--bs-white) 
+}
+
+
+.btn-rounded {
+    border-radius: 50px;
+}
+
+/* containers */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
 }
 
 /* index.html */
