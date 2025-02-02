@@ -51,10 +51,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'planner',
     'friendslist',
     'myaccount',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 SITE_ID = 1
 LOGIN_URL = '/accounts/login/'
