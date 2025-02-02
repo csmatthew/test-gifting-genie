@@ -50,21 +50,21 @@
                             <img src="https://res.cloudinary.com/dqm93egis/image/upload/v1738488445/nobody_l7bbqh.jpg"
                                 alt="Profile Image" class="rounded-circle profile-image">
                             {% endif %}
-                            <span>{{ user.username }}</span>
+                            <span class="profile-text">{{ user.username }}</span>
                         </a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <a class="nav-link trans-text" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link trans-text" href="#">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link trans-text" href="#">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Forgot Password?</a>
+                        <a class="nav-link trans-text" href="#">Forgot Password?</a>
                     </li>
                     <li class="nav-item">
                         {% if user.is_authenticated %}
