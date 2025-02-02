@@ -21,7 +21,7 @@
     /* black */
 }
 
-
+/* global */
 body, html {
     height: 100%;
     margin: 0;
@@ -30,6 +30,7 @@ body, html {
     overflow-y: auto;
 }
 
+/* navbar */
 .brand {
     font-family: var(--primary-font);
     font-size: 2rem;
@@ -41,10 +42,28 @@ body, html {
     font-size: 3rem;
 }
 
+.profile-link {
+    display: flex;
+    align-items: center;
+}
+
+.profile-link .profile-image {
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.nav-item .nav-link {
+    display: flex;
+    align-items: center;
+}
+
 .btn-rounded {
     border-radius: 50px;
 }
 
+/* index.html */
 .feature-image {
     width: 100%;
     height: 100%;
@@ -73,6 +92,7 @@ body, html {
     z-index: 1;
 }
 
+/* footer */ 
 footer {
     flex-shrink: 0;
     position: sticky;
