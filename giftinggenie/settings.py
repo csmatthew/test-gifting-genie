@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'planner',
     'friendslist',
-    'planner',
     'wishlist',
     'myaccount',
 ]
