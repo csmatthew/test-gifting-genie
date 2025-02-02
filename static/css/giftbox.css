@@ -53,7 +53,7 @@
 
 .box-body .img {
     opacity: 0;
-    ransform: translateY(0%);
+    transform: translateY(0%);
     transition: all 0.5s;
     margin: 0 auto;
     display: block;
